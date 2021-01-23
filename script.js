@@ -827,4 +827,19 @@ squares[pacmanCurretIndex].classList.add('pac-man');
 //move pac-man
 function movePacman(e) {
   squares[pacmanCurretIndex].classList.remove('pac-man');
+
+  switch (e.keycode) {
+    case 37:
+      if (pacmanCurretIndex % width !== 0) pacmanCurretIndex -= 1;
+      break;
+    case 38:
+      if (pacmanCurretIndex - width >= 0) pacmanCurretIndex -= width;
+      break;
+    case 39:
+      if (pacmanCurretIndex % width < width - 1) pacmanCurretIndex -= 1;
+      break;
+    case 40:
+      if (pacmanCurretIndex + width < width * width) pacmanCurretIndex += width;
+      break;
+  }
 }
